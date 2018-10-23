@@ -9,6 +9,7 @@
   "author": "Johknotter Hill",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "helmet": "^3.14.0"
   }
 }
