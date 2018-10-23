@@ -16,11 +16,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 
-
-
 app.post('/ajax', (req, res)=> {
     console.log(req.body); // thanks to the middleware above
-    res.send("Test");
+    res.json(["Test", 1, 2, 3, 4]); // important/awesome - very often, I will to respond with json ...it changes the headers so that there is a different mime-type
 });
 
 app.listen(3000);
