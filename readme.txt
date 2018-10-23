@@ -1,4 +1,4 @@
-Express API 4.x reference for tracking my review and express progress
+Express API 4.x reference for tracking my review and express progress. The listed methods have been used during development.
 
 express()
 -- Methods --
