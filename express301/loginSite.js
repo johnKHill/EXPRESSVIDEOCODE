@@ -18,20 +18,20 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
-// Routes
+// 5 Routes
 //-------------------------------------------------------------------------------------
 
-// home route
+// 1. home route
 app.get('/', (req, res)=> {
     res.send('SANITY CHECK');
 });
 
-// login route
+// 2. login route
 app.get('/login', (req, res, next)=> {
     res.render('login')
 });
 
-// process_login route
+// 3. process_login route
 app.post('/process_login', (req, res, next)=> {
     // req.body is made by urlencoded, which parses the http message for sent data!
     const password = req.body.password;
@@ -54,7 +54,7 @@ app.post('/process_login', (req, res, next)=> {
     // res.json(req.body);
 });
 
-// welcome route
+// 4. welcome route
 app.get('/welcome', (req, res, next)=> {
     // the req.cookies object will have a property for every named cookie that has been set
     res.render('welcome', {
@@ -62,7 +62,7 @@ app.get('/welcome', (req, res, next)=> {
     });
 });
 
-// logout route
+// 5. logout route
 app.get('/logout', (req, res, next)=> {
     // res.clearCookie takes 1 arg:
     // 1. Cookie to clear (by name)
