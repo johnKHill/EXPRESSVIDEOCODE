@@ -8,6 +8,7 @@ const fs = require('fs');
 // takes 1 arg:
 // 1. callback, callback, has 2 args: req, res
 const server = http.createServer((req, res) => {
+
     console.log(`A request was made to: ${req.url}`);
     if (req.url === '/') { // Check for Home page
         // the users wants the home page! we know, because the req object has '/' in the url

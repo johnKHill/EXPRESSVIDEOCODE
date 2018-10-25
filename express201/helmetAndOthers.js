@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const helmet = require('helmet');
 
+
 // Whenever I use Express, I will wear my helmet
 app.use(helmet());
 
@@ -18,7 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.post('/ajax', (req, res)=> {
     console.log(req.body); // thanks to the middleware above
-    res.json(["Test", 1, 2, 3, 4]); // important/awesome - very often, I will to respond with json ...it changes the headers so that there is a different mime-type
+    res.json(["Test", 1, 2, 3, 4]); // important/awesome - very often, I will respond with json...it changes the headers so that there is a different mime-type
 });
 
 app.listen(3000);
