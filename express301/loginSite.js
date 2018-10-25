@@ -17,6 +17,17 @@ app.use(cookieParser()); // COOKIEPARSER MIDDLEWARE
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+app.use((req, res, next)=> { // MY PERSONAL MIDDLEWARE, 'modifying the res object'
+    if(req.query.msg === 'fail') {
+        res.locals.msg = `Sorry this username and password combination does not exist,`;
+    }else {
+        res.locals.msg = ``;
+    }
+
+    // Send me on to the next piece of middleware
+    next()
+});
+
 
 // 5 Routes
 //-------------------------------------------------------------------------------------
@@ -28,7 +39,15 @@ app.get('/', (req, res)=> {
 
 // 2. login route
 app.get('/login', (req, res, next)=> {
-    res.render('login')
+    // the req object has query property in express
+    // req.query is an object, with a property of every key in the query string
+    // The query string is where you put insecure data
+    // console.log(req.query);
+    const msg = req.query.msg;
+    if(msg === 'fail') {
+        // run some function...
+    }
+    res.render('login');
 });
 
 // 3. process_login route
@@ -49,7 +68,8 @@ app.post('/process_login', (req, res, next)=> {
         // 1.Where to send the browser
         res.redirect('/welcome');
     }else {
-        res.redirect('/login?msg=fail');
+        // The "?" a query string, is a special character in a URL
+        res.redirect('/login?msg=fail&test=hello');
     }
     // res.json(req.body);
 });
