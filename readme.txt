@@ -27,26 +27,38 @@ Request
 •	req.cookies()
 •	req.params()
 •	req.query()
+- all below are header related
+•	req.accepts()
+•	req.acceptsEncoding()
+•	req.acceptsLanguages()
+•	req.get()
+•	req.range()
+•	req.is()
+•	req.fresh()
+•	req.ips()
 •	req.param() deprecated
 
 
 Response
-•	res.end()
 •	res.json()
 •	res.jsonp()
+•	res.render()
+•	res.send()
+•	res.sendFile()
+•	res.redirect()
+•	res.end()
 •	res.headersSent()
 •	res.download()
 •	res.locals()
-•	res.send()
-•	res.sendFile()
 •	res.cookie()
 •	res.clearCookie()
-•	res.redirect()
-•	res.render()
+
 
 
 Router
+-- Methods --
 •	router.all()
 •	router.METHOD()
 •	router.param()
+•	router.router()
 •	router.use()
