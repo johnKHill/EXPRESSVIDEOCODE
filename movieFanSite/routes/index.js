@@ -23,7 +23,7 @@ router.get('/', function (req, res, next) {
   //   1. error (if any)
   //   2. http response
   //   3. json/data the server sent back
-  request.get(nowPlayingUrl, (error, response, movieData) => {
+  request.get(nowPlayingUrl, (error, response, movieData)=> {
     // console.log("========The error========")
     // console.log(error)
     // console.log("========The response========")
@@ -39,12 +39,12 @@ router.get('/', function (req, res, next) {
 
 // /movie/:id is a wildcard router.
 // that means that :id is going
-router.get('/movie/:id', (req, res, next) => {
+router.get('/movie/:id', (req, res, next)=> {
   // res.json(req.params.id);
   const movieId = req.params.id;
   const thisMovieUrl = `${apiBaseUrl}/movie/${movieId}?api_key=${apiKey}`
   // res.send(thisMovieUrl)
-  request.get(thisMovieUrl, (error, response, movieData) => {
+  request.get(thisMovieUrl, (error, response, movieData)=> {
     const parsedData = JSON.parse(movieData)
     res.render('single-movie', {
       parsedData
@@ -52,13 +52,13 @@ router.get('/movie/:id', (req, res, next) => {
   })
 })
 
-router.post('/search', (req, res, next) => {
+router.post('/search', (req, res, next)=> {
   // res.send("Sanity Check")
   const userSearchTerm = encodeURI(req.body.movieSearch);
   const cat = req.body.cat;
   const movieUrl = `${apiBaseUrl}/search/${cat}?query=${userSearchTerm}&api_key=${apiKey}`
   // res.send(movieUrl)
-  request.get(movieUrl, (error, response, movieData) => {
+  request.get(movieUrl, (error, response, movieData)=> {
     let parsedData = JSON.parse(movieData);
     // res.json(parsedData);
     if (cat == "person") {
@@ -68,7 +68,7 @@ router.post('/search', (req, res, next) => {
       parsedData: parsedData.results
     })
   })
-})
+});
 
 
 module.exports = router;

@@ -3,10 +3,10 @@ var router = express.Router();
 
 const movies = require('../data/movies');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+// /* GET home page. */
+// router.get('/', function(req, res, next) {
+//   res.render('index', { title: 'Express' });
+// });
 
 router.get('/most_popular', (req, res, next)=> {
   // get the page variable from the query string
