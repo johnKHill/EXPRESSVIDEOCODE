@@ -12,9 +12,9 @@ router.get('/most_popular', (req, res, next)=> {
   // get the page variable from the query string
   let page = req.query.page;
   if (page === undefined) {page = 1;}
-  if (req.query.api_key != 123456789) {
-    res.json('Invalid API Key');
-  }else {
+  // if (req.query.api_key != 123456789) {
+  //   res.json('Invalid API Key');
+  // }else {
     results = movies.filter((movie)=> {
       return movie.most_popular;
     });
@@ -24,7 +24,8 @@ router.get('/most_popular', (req, res, next)=> {
       page,
       results
     });
-  }
+//  }
+
 });
 
 
